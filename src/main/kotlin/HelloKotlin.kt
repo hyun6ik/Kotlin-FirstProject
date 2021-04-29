@@ -13,16 +13,92 @@ fun main(){
 //    println("is this true? ${1==0}")
 //
 //    println("this is 2\$a")
+//
+//    val maxBy2 = maxBy2(5, 4)
+//    println("maxBy2 = ${maxBy2}")
+//    checkNum(2)
+//forAndWhile()
+    nullCheck()
 
-    val maxBy2 = maxBy2(5, 4)
-    println("maxBy2 = ${maxBy2}")
-    checkNum(2)
+}
+/**
+ * 7. Nullable / NonNull
+ */
+fun nullCheck(){
+    //NPE : Null pointer Exception
+
+    var name : String = "Hyunsik"
+    var nullName : String? = null
+
+    var nameInUpperCase = name.toUpperCase()
+    val nullNameInUpperCase = nullName?.toUpperCase()
+
+    // ?:  : NULL 이면 이거야
+    val lastName : String? = null
+    val fullName = name +" "+ (lastName?: "NO lastName")
+    print(fullName)
+
 
 
 }
 
 /**
- * Array and List
+ * !! : NULL 무조건 아니야!!
+ */
+fun ignoreNulls(str : String?){
+    val mNotNull : String = str!!
+    val upper = mNotNull.toUpperCase()
+
+    val email : String?= "fkanwm@naver.com"
+    email?.let{
+        println("my email is ${email}")
+    }
+}
+
+
+
+/**
+ * 6. for vs while
+ */
+fun forAndWhile(){
+    val students = arrayListOf("Hyunsik", "Dongjoo", "Sungpil", "Dongjoon")
+//    for (student in students) {
+//        println("student = ${student}")
+//    }
+//
+//    var sum : Int = 0
+//    for( i in 1..10){
+//        sum += i
+//    }
+//    println(sum)
+//
+//    sum = 0
+//    for ( i in 10 downTo 2){
+//        sum += i
+//    }
+//    println(sum)
+//
+//    for ( i in 1 until 100){
+//        // 100포함 X
+//    }
+//
+//    var index = 0
+//    while(index < 10){
+//        index += 1
+//    }
+//    println("index = ${index}")
+
+        for((index, name) in students.withIndex()){
+            println("${index+ 1}번 학생 = ${name}")
+        }
+
+}
+
+
+
+
+/**
+ * 5. Array and List
  * Array 크기가 정해져 있음
  * List
  * 1. List : 수정 불가능한 리스트
